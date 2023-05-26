@@ -1,23 +1,27 @@
 
 
+
 #include<iostream>
 #include<math.h>
 using namespace std;
 struct node1
 {
     int data1;
-    node1 *next1;
-}*top1 = NULL, *p1 = NULL, *np1 = NULL;
+    node1* next1;
+}*top1 = NULL, * p1 = NULL, * np1 = NULL;
+
 struct node2
 {
     int data2;
-    node2 *next2;
-}*top2 = NULL, *p2 = NULL, *np2 = NULL;
+    node2* next2;
+}*top2 = NULL, * p2 = NULL, * np2 = NULL;
+
 struct node3
 {
     int data3;
-    node3 *next3;
-}*top3 = NULL, *p3 = NULL, *np3 = NULL;
+    node3* next3;
+}   *top3 = NULL, * p3 = NULL, * np3 = NULL;
+
 void push1(int data)
 {
     np1 = new node1;
@@ -33,6 +37,7 @@ void push1(int data)
         top1 = np1;
     }
 }
+
 int pop1()
 {
     int b = 999;
@@ -48,6 +53,7 @@ int pop1()
         delete(p1);
     }
 }
+
 void push2(int data)
 {
     np2 = new node2;
@@ -63,6 +69,7 @@ void push2(int data)
         top2 = np2;
     }
 }
+
 int pop2()
 {
     int b = 999;
@@ -78,6 +85,7 @@ int pop2()
         delete(p2);
     }
 }
+
 void push3(int data)
 {
     np3 = new node3;
@@ -93,6 +101,7 @@ void push3(int data)
         top3 = np3;
     }
 }
+
 int pop3()
 {
     int b = 999;
@@ -108,9 +117,51 @@ int pop3()
         delete(p3);
     }
 }
+
+void display1()
+{
+    cout << endl;
+    node1* p1;
+    p1 = top1;
+    cout << "Tower1-> " << "\t";
+    while (p1 != NULL)
+    {
+        cout << p1->data1 << "\t";
+        p1 = p1->next1;
+    }
+    cout << endl;
+}
+
+void display2()
+{
+    node2* p2;
+    p2 = top2;
+    cout << "Tower2-> " << "\t";
+    while (p2 != NULL)
+    {
+        cout << p2->data2 << "\t";
+        p2 = p2->next2;
+    }
+    cout << endl;
+}
+
+void display3()
+{
+    node3* p3;
+    p3 = top3;
+    cout << "Tower3-> " << "\t";
+    while (p3 != NULL)
+    {
+        cout << p3->data3 << "\t";
+        p3 = p3->next3;
+    }
+    cout << endl;
+    cout << endl;
+}
+
 int top_of_stack()
 {
-    if (top1 != NULL && top1->data1 == 1 )
+    if (top1 != NULL && top1->data1 == 1)
     {
         return 1;
     }
@@ -123,49 +174,13 @@ int top_of_stack()
         return 3;
     }
 }
-void display1()
-{
-    cout<<endl;
-    node1 *p1;
-    p1 = top1;
-    cout<<"Tower1-> "<<"\t";
-    while (p1 != NULL)
-    {
-        cout<<p1->data1<<"\t";
-        p1 = p1->next1;
-    }
-    cout<<endl;
-}
-void display2()
-{
-    node2 *p2;
-    p2 = top2;
-    cout<<"Tower2-> "<<"\t";
-    while (p2 != NULL)
-    {
-        cout<<p2->data2<<"\t";
-        p2 = p2->next2;
-    }
-    cout<<endl;
-}
-void display3()
-{
-    node3 *p3;
-    p3 = top3;
-    cout<<"Tower3-> "<<"\t";
-    while (p3 != NULL)
-    {
-        cout<<p3->data3<<"\t";
-        p3 = p3->next3;
-    }
-    cout<<endl;
-    cout<<endl;
-}
-void toh(int n)
+
+void TOH(int n)
 {
     int i, x, a, b;
-    for (i = 0; i < (pow(2,n)); i++)
+    for (i = 0; i < (pow(2, n)); i++)
     {
+        cout << "Step " << i+1 << endl;
         display1();
         display2();
         display3();
@@ -258,16 +273,17 @@ void toh(int n)
             }
         }
     }
+    cout << "Number of Moves is " << i - 1 << endl;
 }
+
 int main()
 {
     int n, i;
-    cout<<"enter the number of disks\n";
-    cin>>n;
+    cout << "Enter the Number of Disks : \n";
+    cin >> n;
     for (i = n; i >= 1; i--)
     {
         push1(i);
-    } 
-    toh(n);
-    getch();
+    }
+    TOH(n);
 }
